@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>REGALDIN — Outfits That Unite. Designs That Inspire.</title>
+<meta name="description" content="Regaldin: B2B custom polos & T-shirts. Affordable. Quality. Customisation. Trust." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root{
+    --navy:#0c1b36; --navy-700:#122347; --navy-600:#18305d; --navy-500:#1c3b74;
+    --cream:#fbf5eb; --white:#ffffff; --ink:#0b0f1a; --muted:#6b7280; --line:rgba(12,27,54,.12);
+    --accent:#d4b78f;
+  }
+  html,body{background:var(--cream); color:var(--ink)}
+  .brand,.title{font-family:"DM Serif Display",serif}
+  .hairline{box-shadow:inset 0 -1px 0 var(--line)}
+  .hairline-top{box-shadow:inset 0 1px 0 var(--line)}
+
+  /* NAV highlight on scroll */
+  header.nav-solid{
+    background:rgba(12,27,54,.96)!important;
+    color:#fff!important;
+    box-shadow:0 10px 30px rgba(0,0,0,.18)
+  }
+  header.nav-solid .brand{color:#fff}
+  header.nav-solid a{color:#eef2ff}
+  header.nav-solid a:hover{opacity:.9}
+
+  /* Hero background & orbs */
+  .bg-grid{
+    background:
+      radial-gradient(60% 40% at 15% 10%, rgba(255,255,255,.15), transparent 60%),
+      radial-gradient(60% 40% at 90% -10%, rgba(212,183,143,.15), transparent 60%),
+      linear-gradient(180deg, #0f2348 0%, #0c1b36 55%, #09162d 100%);
+  }
+  .orb{position:absolute;width:28vmax;aspect-ratio:1;border-radius:9999px;filter:blur(36px);opacity:.22;mix-blend-mode:screen;
+       background:radial-gradient(circle at 30% 30%,#3d6cff,transparent 60%);animation:float 22s ease-in-out infinite alternate}
+  .orb.o2{right:-10%;top:30%;left:auto;background:radial-gradient(circle at 30% 30%,#22d1c3,transparent 60%);animation-duration:26s}
+  .orb.o3{left:40%;top:-16%;background:radial-gradient(circle at 30% 30%,#d4b78f,transparent 65%);animation-duration:28s}
+  @keyframes float{0%{transform:translateY(0)}100%{transform:translateY(-4%)}}
+
+  /* Cards */
+  .card{transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s}
+  .card:hover{transform:translateY(-4px); box-shadow:0 18px 44px rgba(0,0,0,.16)}
+  .tilt:hover{transform:translateY(-4px) rotateX(2deg) rotateY(-2deg)}
+
+  /* Scroll reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.show{opacity:1; transform:translateY(0)}
+
+  /* Link underline interaction */
+  .u{background-image:linear-gradient(currentColor,currentColor);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s}
+  .u:hover{background-size:100% 2px}
+
+  /* Scroll progress bar */
+  #scrollbar{position:fixed;left:0;top:0;height:3px;width:0%;background:linear-gradient(90deg,#22d1c3,#d4b78f);z-index:60}
+
+  /* Marquee */
+  .marquee{--sp:36s; overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)}
+  .marquee > div{display:flex;gap:3.5rem;animation:mar var(--sp) linear infinite}
+  @keyframes mar{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* Animated Headline */
+  .headline{line-height:1.1}
+  .headline .word{display:inline-block; opacity:0; transform:translateY(14px) scale(.98); will-change:transform,opacity;}
+  .headline .word.on{opacity:1; transform:translateY(0) scale(1); transition:transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s;}
+  .shine{background:linear-gradient(90deg,#ffffff 0%, #d4b78f 50%, #ffffff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 4s linear infinite}
+  @keyframes shine{0%{background-position:-200% 0}100%{background-position:200% 0}}
+</style>
+</head>
+<body class="antialiased selection:bg-[var(--navy)] selection:text-white">
+
+<div id="scrollbar"></div>
+
+<!-- ================= NAV ================= -->
+<header id="siteHeader" class="sticky top-0 z-50 bg-[var(--cream)]/80 backdrop-blur hairline transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="brand text-[28px] leading-none text-[var(--navy)]">REGALDIN</div>
+        <svg aria-hidden="true" viewBox="0 0 36 20" class="h-4 w-7 fill-[var(--accent)]"><path d="M4 18h28L26 2l-8 8L10 2 4 18z"/></svg>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#home" class="u">Home</a>
+        <a href="#about" class="u">About</a>
+        <a href="#services" class="u">Products</a>
+        <a href="#process" class="u">Process</a>
+        <a href="#impact" class="u">Impact</a>
+        <a href="#contact" class="u">Contact</a>
+        <a href="https://wa.me/message/5GBYKL2GDR62K1" target="_blank"
+           class="rounded-full bg-[var(--navy)] text-white px-4 py-2 shadow hover:bg-[var(--navy-700)]">Chat • WhatsApp</a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden rounded-md border border-[var(--line)] px-3 py-2">☰</button>
+    </div>
+  </div>
+
+  <!-- mobile -->
+  <div id="mobileNav" class="hidden md:hidden hairline-top bg-[var(--cream)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 grid gap-3 text-sm">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Products</a>
+      <a href="#process">Process</a><a href="#impact">Impact</a><a href="#contact">Contact</a>
+      <a href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank"
+         class="rounded-md bg-[var(--navy)] text-white px-4 py-2 text-center">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative overflow-hidden">
+  <div class="bg-grid relative">
+    <div class="orb left-[-10%] top-[30%]"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 text-white relative min-h-[100dvh] flex flex-col justify-center">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center flex-grow">
+        <div class="reveal">
+          <p class="uppercase tracking-[.22em] text-[var(--accent)] font-semibold text-sm">Outfits That Unite. Designs That Inspire.</p>
+
+          <!-- Animated headline -->
+          <h1 id="animatedTitle" class="title headline text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-2 lg:mt-3 shine">
+            Custom Polos & T-Shirts for Brands, Colleges & Teams
+          </h1>
+
+          <p class="mt-3 lg:mt-5 text-white/80 max-w-xl text-sm lg:text-base">Affordable, durable and customisable apparel delivered via a hassle-free print-on-order model. Service provided across India.</p>
+          
+          <div class="mt-6 lg:mt-8 flex flex-wrap items-center gap-3">
+            <a href="#quote" class="rounded-full bg-white text-[var(--navy)] px-5 py-2.5 lg:px-6 lg:py-3 font-semibold hover:opacity-90 text-sm lg:text-base">Get a Quote</a>
+            <a href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank"
+               class="rounded-full border border-white/30 px-4 py-2.5 lg:px-5 lg:py-3 hover:bg-white/10 text-sm lg:text-base">WhatsApp us ↗</a>
+          </div>
+          
+          <div class="mt-4 lg:mt-6 text-xs lg:text-sm text-white/70">Avg. Delivery: <span class="font-semibold text-white">~6 days</span></div>
+        </div>
+
+        <div class="card rounded-3xl overflow-hidden border border-white/15 tilt reveal">
+          <img src="poloshirt1.webp"
+               alt="Professional polo mockups" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- Stat band -->
+      <div class="mt-6 lg:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 lg:gap-4">
+        <div class="rounded-xl bg-[var(--navy-600)]/50 border border-white/10 p-3 lg:p-4 text-center backdrop-blur reveal">
+          <div class="text-xl lg:text-2xl font-extrabold">10k+</div>
+          <p class="text-xs text-white/80 mt-1">Units Printed</p>
+        </div>
+        <div class="rounded-xl bg-[var(--navy-600)]/50 border border-white/10 p-3 lg:p-4 text-center backdrop-blur reveal">
+          <div class="text-xl lg:text-2xl font-extrabold">AQL 2.5</div>
+          <p class="text-xs text-white/80 mt-1">Quality Checks</p>
+        </div>
+        <div class="rounded-xl bg-[var(--navy-600)]/50 border border-white/10 p-3 lg:p-4 text-center backdrop-blur reveal">
+          <div class="text-xl lg:text-2xl font-extrabold">100+</div>
+          <p class="text-xs text-white/80 mt-1">B2B Clients</p>
+        </div>
+        <div class="rounded-xl bg-[var(--navy-600)]/50 border border-white/10 p-3 lg:p-4 text-center backdrop-blur reveal">
+          <div class="text-xl lg:text-2xl font-extrabold">48–72h</div>
+          <p class="text-xs text-white/80 mt-1">Quote Turnaround</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NAVY RIBBON ===== -->
+<section class="bg-[var(--navy)] text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 marquee">
+    <div>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Premium Cotton Blends</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Pantone-Matched Colours</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Bulk & Print-on-Order</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Quality Guaranteed</span>
+      <!-- duplicate for seamless loop -->
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Premium Cotton Blends</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Pantone-Matched Colours</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Bulk & Print-on-Order</span>
+      <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 fill-[var(--accent)]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09L5.82 12 1 7.91l6.06-.91L10 1l2.94 6 6.06.91L14.18 12l1.698 6.09z"/></svg> Quality Guaranteed</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+    <div class="reveal">
+      <h2 class="title text-3xl md:text-4xl text-[var(--navy)]">About Regaldin</h2>
+      <p class="mt-4 text-[var(--muted)]">Regaldin started with a simple idea: make professional team wear <strong class="text-[var(--ink)]">accessible, affordable and reliable</strong> for every organisation. Services provided pan India.</p>
+
+      <div class="mt-6 rounded-2xl bg-white border border-[var(--line)] p-6">
+        <h3 class="font-semibold text-[var(--navy)]">Vision</h3>
+        <p class="text-sm text-[var(--muted)] mt-1">“To become the go-to brand for affordable, high-quality customised polos and T-shirts, helping every business and institution express their unique identity with confidence.”</p>
+        <h3 class="font-semibold text-[var(--navy)] mt-5">Mission</h3>
+        <p class="text-sm text-[var(--muted)] mt-1">“To deliver durable, stylish, and customisable apparel through a hassle-free print-on-order model — making professional wear accessible, affordable, and impactful for every team.”</p>
+      </div>
+
+      <dl class="mt-6 grid sm:grid-cols-4 gap-4 text-sm">
+        <div><dt class="text-[var(--muted)]">Core Values</dt></div>
+        <div class="font-medium">Trust</div>
+        <div class="font-medium">Affordability</div>
+        <div class="font-medium">Simplicity & Customisation</div>
+      </dl>
+    </div>
+
+    <div class="reveal">
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-[var(--line)] card">
+        <img src="greenwhitetshirt.png"
+             alt="Team in branded polos" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="services" class="py-16 md:py-24 hairline bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-end justify-between gap-6">
+      <h2 class="title text-3xl md:text-4xl text-[var(--navy)]">Products & Services</h2>
+      <a href="#quote" class="u hidden md:inline-block">Request Quote</a>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="bg-[var(--cream)] border border-[var(--line)] rounded-2xl overflow-hidden card reveal">
+        <img class="h-44 w-full object-cover" src="shirt.webp" alt="Polos">
+        <div class="p-5">
+          <h3 class="font-semibold text-lg">Custom Polo T-Shirts</h3>
+          <p class="text-sm text-[var(--muted)] mt-1">Single tone, dual tone, patterned options with premium cotton blends.</p>
+          <a href="#quote" class="u mt-3 inline-block text-sm">Request Quote →</a>
+        </div>
+      </article>
+
+      <article class="bg-[var(--cream)] border border-[var(--line)] rounded-2xl overflow-hidden card reveal">
+        <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop" alt="Corporate uniforms">
+        <div class="p-5">
+          <h3 class="font-semibold text-lg">Corporate Uniforms</h3>
+          <p class="text-sm text-[var(--muted)] mt-1">Smart, consistent identity for sales, operations and support teams.</p>
+          <a href="#quote" class="u mt-3 inline-block text-sm">Request Quote →</a>
+        </div>
+      </article>
+
+      <article class="bg-[var(--cream)] border border-[var(--line)] rounded-2xl overflow-hidden card reveal">
+        <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1600&auto=format&fit=crop" alt="College merch">
+        <div class="p-5">
+          <h3 class="font-semibold text-lg">College & Event Merchandise</h3>
+          <p class="text-sm text-[var(--muted)] mt-1">Fest tees, society polos and event kits with fast turnarounds.</p>
+          <a href="#quote" class="u mt-3 inline-block text-sm">Request Quote →</a>
+        </div>
+      </article>
+
+      <article class="bg-[var(--cream)] border border-[var(--line)] rounded-2xl overflow-hidden card reveal sm:col-span-2 lg:col-span-1">
+        <img class="h-44 w-full object-cover" src="navybluetshirt.png" alt="Print on order">
+        <div class="p-5">
+          <h3 class="font-semibold text-lg">Print-on-Order Services</h3>
+          <p class="text-sm text-[var(--muted)] mt-1">Pay for what you need, when you need. Zero inventory stress.</p>
+          <a href="#quote" class="u mt-3 inline-block text-sm">Request Quote →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="bg-[var(--navy)] text-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="title text-3xl md:text-4xl">How It Works</h2>
+    <p class="text-white/80 mt-2">Simple, transparent and fast.</p>
+
+    <div class="mt-10 grid md:grid-cols-4 gap-6">
+      <div class="rounded-2xl bg-[var(--navy-500)]/40 border border-white/10 p-6 backdrop-blur reveal">
+        <div class="text-3xl font-extrabold">01</div>
+        <h3 class="font-semibold mt-2">Brief & Quote</h3>
+        <p class="text-sm text-white/80 mt-1">Share logo, colours, quantity & timeline.</p>
+      </div>
+      <div class="rounded-2xl bg-[var(--navy-500)]/40 border border-white/10 p-6 backdrop-blur reveal">
+        <div class="text-3xl font-extrabold">02</div>
+        <h3 class="font-semibold mt-2">Mockups</h3>
+        <p class="text-sm text-white/80 mt-1">Pantone matching + size sheets.</p>
+      </div>
+      <div class="rounded-2xl bg-[var(--navy-500)]/40 border border-white/10 p-6 backdrop-blur reveal">
+        <div class="text-3xl font-extrabold">03</div>
+        <h3 class="font-semibold mt-2">Production</h3>
+        <p class="text-sm text-white/80 mt-1">AQL checks, stitching & printing.</p>
+      </div>
+      <div class="rounded-2xl bg-[var(--navy-500)]/40 border border-white/10 p-6 backdrop-blur reveal">
+        <div class="text-3xl font-extrabold">04</div>
+        <h3 class="font-semibold mt-2">Delivery</h3>
+        <p class="text-sm text-white/80 mt-1">Dispatch with tracking. Re-order ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT ===== -->
+<section id="impact" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <h2 class="title text-3xl md:text-4xl text-[var(--navy)]">Real Brands. Real Impact.</h2>
+        <p class="mt-3 text-[var(--muted)]">See how Regaldin helps businesses and colleges create identity through custom apparel.</p>
+        <div class="mt-6 grid grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white border border-[var(--line)] p-6 text-center reveal">
+            <div class="text-3xl font-extrabold text-[var(--navy)]">500+</div>
+            <div class="text-xs mt-1 text-[var(--muted)]">Polos for College Fests</div>
+          </div>
+          <div class="rounded-2xl bg-white border border-[var(--line)] p-6 text-center reveal">
+            <div class="text-3xl font-extrabold text-[var(--navy)]">100+</div>
+            <div class="text-xs mt-1 text-[var(--muted)]">Companies Onboarded</div>
+          </div>
+          <div class="rounded-2xl bg-white border border-[var(--line)] p-6 text-center reveal">
+            <div class="text-3xl font-extrabold text-[var(--navy)]">6 Days</div>
+            <div class="text-xs mt-1 text-[var(--muted)]">Average Delivery</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal card rounded-3xl overflow-hidden border border-[var(--line)]">
+        <img src="group.jpg" alt="Group wearing polos" class="w-full h-full object-cover">
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<section id="quote" class="py-16 md:py-24 hairline bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="title text-3xl md:text-4xl text-[var(--navy)]">Get a Quote</h2>
+    <p class="mt-2 text-[var(--muted)]">Simple form. Fast response. Or reach us on WhatsApp right away.</p>
+
+    <form class="mt-8 grid gap-4 text-left">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]" placeholder="Your Name" required />
+        <input class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]" placeholder="Company / Institution" />
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="email" class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]" placeholder="Email" required />
+        <input class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]" placeholder="Phone" />
+      </div>
+      <select class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]">
+        <option>Choose Product / Service</option>
+        <option>Custom Polo T-Shirts</option>
+        <option>Corporate Uniforms</option>
+        <option>College & Event Merchandise</option>
+        <option>Print-on-Order Services</option>
+      </select>
+      <textarea rows="4" class="w-full rounded-xl border border-[var(--line)] px-4 py-3 bg-[var(--cream)]" placeholder="Quantity, sizes, colours, deadline…"></textarea>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <button class="rounded-full bg-[var(--navy)] text-white px-6 py-3 font-semibold hover:bg-[var(--navy-700)]">Submit</button>
+        <a href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank"
+           class="rounded-full border border-[var(--navy)] text-[var(--navy)] px-6 py-3 font-semibold hover:bg-[var(--navy)] hover:text-white">WhatsApp • Get a Quote</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="pt-0">
+  <!-- navy CTA strip -->
+  <div class="bg-[var(--navy)] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-center md:text-left"><span class="font-semibold">Ready to kit your team?</span> Get custom polos that fit your brand, budget & timeline. Orders accepted pan India.</p>
+      <div class="flex gap-3">
+        <a href="#quote" class="rounded-full bg-white text-[var(--navy)] px-5 py-2 font-semibold">Start Your Order</a>
+        <a href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank" class="rounded-full border border-white/30 px-5 py-2">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
+    <div class="reveal">
+      <h2 class="title text-3xl md:text-4xl text-[var(--navy)]">Contact</h2>
+      <ul class="mt-4 space-y-2 text-[var(--muted)]">
+        <li><strong class="text-[var(--ink)]">Phone:</strong> <a class="u" href="tel:+919980176628">99801 76628</a>, <a class="u" href="tel:+919342588856">93425 88856</a></li>
+        <li><strong class="text-[var(--ink)]">Email:</strong> <a class="u" href="mailto:regaldin.official@gmail.com">regaldin.official@gmail.com</a></li>
+        <li><strong class="text-[var(--ink)]">Address:</strong> 23 Shanthi Nagar, BK Pudur, Kuniyamuthur, Coimbatore 641008</li>
+        <li><strong class="text-[var(--ink)]">WhatsApp:</strong> <a class="u" href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank">+91 9150709669</a></li>
+      </ul>
+      <div class="mt-6 flex gap-3">
+        <a href="#quote" class="rounded-full bg-[var(--navy)] text-white px-5 py-2">Get a Quote</a>
+        <a href="https://convocclothing.in" target="_blank" class="rounded-full border border-[var(--line)] px-5 py-2">Reference</a>
+      </div>
+    </div>
+    <div class="rounded-3xl overflow-hidden border border-[var(--line)] card reveal">
+      <iframe class="w-full h-72 md:h-[420px]" src="https://maps.google.com/maps?q=Kuniyamuthur%20Coimbatore&t=&z=12&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="hairline bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-[var(--muted)] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p>© <span id="y"></span> Regaldin. All rights reserved. Designed by Talentronaut Technologies.</p>
+    <nav class="flex items-center gap-5">
+      <a href="#services" class="u">Products</a>
+      <a href="#process" class="u">Process</a>
+      <a href="#quote" class="u">Get a Quote</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ===== Floating WhatsApp Chat ===== -->
+<a href="https://wa.me/message/RPJAZT2HZNBUD1" target="_blank"
+   class="fixed bottom-5 right-5 z-50 group">
+  <div class="rounded-full bg-[#25D366] text-white px-5 py-3 shadow-xl flex items-center gap-2 hover:scale-105 transition">
+    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.62-6.003C.122 5.281 5.403 0 12.061 0c3.181 0 6.167 1.24 8.413 3.488a11.82 11.82 0 013.497 8.414c-.003 6.659-5.284 11.94-11.942 11.94a11.9 11.9 0 01-6-1.617L.057 24zm6.597-3.807c1.735 1.033 3.276 1.666 5.392 1.666 5.448 0 9.886-4.434 9.889-9.877.003-5.462-4.415-9.89-9.881-9.894-5.448 0-9.884 4.434-9.887 9.882a9.86 9.86 0 001.662 5.414l-.999 3.648 3.824-1.839zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.03-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.199-.347.224-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.298-.018-.46.13-.609.134-.133.297-.347.446-.521.149-.173.198-.297.298-.496.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.412.248-.694.248-1.29.173-1.414z"/></svg>
+    <span class="font-semibold">Chat with Regaldin</span>
+  </div>
+</a>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const menuBtn=document.getElementById('menuBtn');
+  const mobileNav=document.getElementById('mobileNav');
+  if(menuBtn){ menuBtn.addEventListener('click', ()=> mobileNav.classList.toggle('hidden')); }
+
+  // Scroll progress + nav solid
+  const bar=document.getElementById('scrollbar');
+  const header=document.getElementById('siteHeader');
+  window.addEventListener('scroll', ()=>{
+    const h=document.documentElement, sc=h.scrollTop, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(sc/max)*100+'%';
+    if(sc>8) header.classList.add('nav-solid'); else header.classList.remove('nav-solid');
+  });
+
+  // Reveal on scroll
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+  },{threshold:.15, rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Animated headline (word-by-word cascade + shimmer)
+  const title=document.getElementById('animatedTitle');
+  const words=title.textContent.trim().split(' ');
+  title.textContent='';
+  words.forEach((w,i)=>{
+    const span=document.createElement('span');
+    span.textContent=w+(i<words.length-1?' ':'');
+    span.className='word';
+    title.appendChild(span);
+  });
+  const runHeadline=()=>{
+    [...title.querySelectorAll('.word')].forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('on'), i*85);
+    });
+  };
+  const hIO=new IntersectionObserver((ents,obs)=>{
+    ents.forEach(e=>{ if(e.isIntersecting){ title.classList.add('shine'); runHeadline(); obs.unobserve(e.target);} });
+  },{threshold:.6});
+  hIO.observe(title);
+</script>
+</body>
+</html>
